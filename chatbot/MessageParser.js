@@ -8,6 +8,10 @@ class MessageParser {
         if (msg.includes("hello")) {
             this.actionProvider.handleHello();
         }
+
+        if (msg.includes("dog")) {
+            this.actionProvider.handleDog();
+        }
     }
 }
 

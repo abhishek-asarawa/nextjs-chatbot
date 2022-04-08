@@ -13,6 +13,18 @@ class ActionProvider {
             messages: [...prev.messages, msg],
         }));
     }
+
+    handleDog() {
+        const msg = this.createChatBotMessage(
+            "Here's a nice dog picture for you",
+            { widget: "dogPicture" }
+        );
+
+        this.setState((prev) => ({
+            ...prev,
+            messages: [...prev.messages, msg],
+        }));
+    }
 }
 
 export default ActionProvider;
