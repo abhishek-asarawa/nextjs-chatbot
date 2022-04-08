@@ -1,4 +1,5 @@
 import axios from "axios";
+import Image from "next/image";
 import React, { useState, useEffect } from "react";
 
 const DogPicture = () => {
@@ -22,7 +23,7 @@ const DogPicture = () => {
 
     return (
         <div>
-            <img src={imageUrl} alt="A dog" />
+            <Image src={imageUrl} alt="A dog" />
         </div>
     );
 };
