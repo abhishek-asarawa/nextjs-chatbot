@@ -12,6 +12,10 @@ class MessageParser {
         if (msg.includes("dog")) {
             this.actionProvider.handleDog();
         }
+
+        if (msg.includes("help")) {
+            this.actionProvider.handleOptionMenu();
+        }
     }
 }
 

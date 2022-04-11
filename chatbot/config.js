@@ -1,10 +1,15 @@
 import { createChatBotMessage } from "react-chatbot-kit";
 import DogPicture from "../Components/DogPictures";
+import Options from "../Components/Options";
 
 const botName = "Bot";
 
 const config = {
-    initialMessages: [createChatBotMessage(`Hi, I am ${botName}`)],
+    initialMessages: [
+        createChatBotMessage(`Hi, I am ${botName}`, {
+            widget: "optionsMenu",
+        }),
+    ],
     botName,
     customStyles: {
         botMessageBox: {
@@ -18,6 +23,10 @@ const config = {
         {
             widgetName: "dogPicture",
             widgetFunc: (prop) => <DogPicture {...prop} />,
+        },
+        {
+            widgetName: "optionsMenu",
+            widgetFunc: (prop) => <Options {...prop} />,
         },
     ],
 };

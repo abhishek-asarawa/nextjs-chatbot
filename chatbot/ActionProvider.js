@@ -5,13 +5,18 @@ class ActionProvider {
         this.createClientMessage = createChatBotMessage;
     }
 
-    handleHello() {
-        const msg = this.createChatBotMessage("Hello! Nice to meet you.");
-
+    setMsg(msg) {
         this.setState((prev) => ({
             ...prev,
             messages: [...prev.messages, msg],
         }));
+    }
+
+    handleHello() {
+        const msg = this.createChatBotMessage("Hello! Nice to meet you.");
+
+        this.setMsg(msg);
+        this.handleOptionMenu();
     }
 
     handleDog() {
@@ -20,10 +25,19 @@ class ActionProvider {
             { widget: "dogPicture" }
         );
 
-        this.setState((prev) => ({
-            ...prev,
-            messages: [...prev.messages, msg],
-        }));
+        this.setMsg(msg);
+    }
+
+    handleOptionMenu() {
+        const msg = this.createChatBotMessage("How can I help you?", {
+            widget: "optionsMenu",
+        });
+        this.setMsg(msg);
+    }
+
+    handleSelectOption(option = 1) {
+        const msg = this.createChatBotMessage(`Working on option - ${option}`);
+        this.setMsg(msg);
     }
 }
 
